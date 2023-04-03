@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="get">GET</button>
+    <button id="patch">UPDATE</button>
+  </body>
+</html>
+<script>
+  const btn = document.getElementById("get");
+  btn.onclick = async () => {
+    const data = await fetch(`https://chocolate-walrus-robe.cyclic.app/post`);
+    const out = await data.json();
+    console.log(out);
+  };
+
+  const btn2 = document.getElementById("patch");
+  btn2.onclick = async () => {
+    try {
+      const data = await fetch(
+        `https://chocolate-walrus-robe.cyclic.app/post/delete/642b16bbe43cac69d9528d62`,
+        {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+            Authorization:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2NDJiMGUyMjEwNWRlMzA5ZGQ2MmNmN2YiLCJpYXQiOjE2ODA1NDQzMTJ9.O7hzphZV5q8qm25U4Ip0ie48Dq62jbmh4_B-9scpTOI",
+          },
+        }
+      );
+      const { msg } = await data.json();
+      console.log({ data: msg });
+    } catch (error) {
+      console.log({ error: error });
+    }
+  };
+</script>
