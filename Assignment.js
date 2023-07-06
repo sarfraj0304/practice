@@ -4,6 +4,8 @@ let sum = 0;
 let res = [];
 
 // use to find out all the pairs whose sum is eqaual to target
+// Time Complexity= O(nlogn)
+// Space Complexity  = O(nlog(n))
 
 const findTargetSum = (target, sum, arr) => {
   arr.sort((a, b) => a - b);
@@ -27,13 +29,13 @@ const findTargetSum = (target, sum, arr) => {
 
 findTargetSum(target, sum, arr);
 
-// use to flatten the array using in build function
+// use to flatten the array using in build function time Complexity- O(n) space Complexity O(n)
 const flattenArray = (arr) => {
   return arr.flat();
 };
 const flattendArray = flattenArray(res);
 
-// use to find out combination of all that elements whose sum is equal to double the target
+// use to find out combination of all that elements whose sum is equal to double the target Time Complexity- O(k^n)
 let newTarget = target * 2;
 
 const findCombination = (arr, target) => {
